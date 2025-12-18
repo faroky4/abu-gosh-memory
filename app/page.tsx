@@ -5,6 +5,7 @@ import Section from "./components/site/Section";
 import FeatureCards from "./components/site/FeatureCards";
 import StoriesPreview from "./components/site/StoriesPreview";
 import BeforeAfterSlider from "./components/site/BeforeAfterSlider";
+import InteractiveMap from "./components/site/InteractiveMap";
 
 export default function HomePage() {
   return (
@@ -71,12 +72,10 @@ export default function HomePage() {
         <Section
           id="map"
           title="الخريطة التفاعلية"
-          subtitle="نضيف خريطة لأبو غوش مع نقاط للأماكن التاريخية والصور والقصص المرتبطة فيها."
+          subtitle="خريطة تقريبية لأبو غوش مع نقاط تمثل أماكن مهمة في حياة أهل البلد."
           className="border-t bg-slate-50/60"
         >
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 text-xs text-slate-500">
-            placeholder للخريطة – لاحقًا نضيف خريطة تفاعلية حقيقية أو صورة.
-          </div>
+          <InteractiveMap />
         </Section>
 
         <Section
