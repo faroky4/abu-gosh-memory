@@ -15,7 +15,7 @@ export const mapPlaces: MapPlace[] = [
     shortDescription: "المحلات القديمة والجديدة على الشارع الرئيسي.",
     lat: 31.809,
     lng: 35.10899,
-    compareId: "main-street",
+    
   },
   {
     id: "school",
@@ -23,7 +23,15 @@ export const mapPlaces: MapPlace[] = [
     shortDescription: "مكان مشروع المتحف المدرسي.",
     lat: 31.8112,
     lng: 35.1078,
-    compareId: "school",
+    //compareId: "school",
+  },
+  {
+    id: "caravan",
+    title: "مطعم كروان",
+    shortDescription: "من اقدم مطاعم القريه",
+    lat: 31.8098,
+    lng: 35.1062,
+    compareId: "caravan",
   },
   {
     id: "old-mosque",
@@ -38,5 +46,6 @@ export const mapPlaces: MapPlace[] = [
     shortDescription: "مكان تجمع الناس قديماً حول الماء.",
     lat: 31.80758,
     lng: 35.10788,
+    compareId: "spring",
   },
 ];

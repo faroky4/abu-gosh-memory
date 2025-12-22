@@ -30,31 +30,31 @@ export default function HomePage() {
           className="border-t bg-slate-50/60"
         >
           <div className="rounded-2xl border border-dashed border-amber-300 bg-amber-50/40 p-4 text-xs sm:text-sm text-amber-900">
-            هنا لاحقًا تقدروا تعرضوا Gallery لصور الطلاب مع شرح لكل صورة.
+
           </div>
         </Section>
         <Section
           id="compare"
           title="زمان واليوم"
-          subtitle="اسحبي الشريط وشوفي نفس المكان كيف كان زمان وكيف صار اليوم."
+          subtitle="اسحب الشريط وشوف نفس المكان كيف كان زمان وكيف صار اليوم."
           className="border-t bg-slate-50/60"
         >
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-xl bg-white border border-slate-100 p-4 shadow-sm">
-              <p className="text-sm font-semibold mb-3">مثال: مكان 1</p>
+            <div id="caravan" className="rounded-xl bg-white border border-slate-100 p-4 shadow-sm">
+              <p className="text-sm font-semibold mb-3">مثال: مطعم كروان</p>
               <BeforeAfterSlider
-                beforeSrc="/images/old-1.jpg"
-                afterSrc="/images/new-1.jpg"
+                beforeSrc="/images/old-caravan.jpg"
+                afterSrc="/images/new-caravan.jpg"
                 alt="مقارنة مكان 1"
                 initial={55}
               />
             </div>
 
-            <div className="rounded-xl bg-white border border-slate-100 p-4 shadow-sm">
-              <p className="text-sm font-semibold mb-3">مثال: مكان 2</p>
+            <div id="spring" className="rounded-xl bg-white border border-slate-100 p-4 shadow-sm">
+              <p className="text-sm font-semibold mb-3">مثال: عين الماء</p>
               <BeforeAfterSlider
-                beforeSrc="/images/old-1.jpg"
-                afterSrc="/images/new-1.jpg"
+                beforeSrc="/images/old-ein.jpg"
+                afterSrc="/images/new-ein.jpg"
                 alt="مقارنة مكان 2"
                 initial={40}
               />
