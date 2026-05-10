@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { mapPlaces, MapPlace } from "@/data/mapPlaces";
 
 export default function LeafletMapInner() {
   const [active, setActive] = useState<MapPlace | null>(null);
+  const router = useRouter();
 
   // مركز تقريبي لأبو غوش
   const center: [number, number] = [31.808, 35.098];
@@ -21,7 +23,7 @@ export default function LeafletMapInner() {
         <MapContainer
           center={center}
           zoom={15}
-          style={{ width: "100%", height: "350px" }}
+          style={{ width: "100%", height: "400px" }}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
@@ -44,6 +46,17 @@ export default function LeafletMapInner() {
                       {place.shortDescription}
                     </p>
                   )}
+                  <button
+                    onClick={() => router.push(`/places/${place.placeId}`)}
+                    style={{
+                      marginTop: "8px",
+                      fontSize: "12px",
+                      fontWeight: 700,
+                      color: "#b45309",
+                    }}
+                  >
+                    فتح صفحة المكان →
+                  </button>
                 </div>
               </Popup>
             </Marker>
@@ -63,6 +76,13 @@ export default function LeafletMapInner() {
             )}
 
             <div className="flex flex-wrap gap-3 text-xs">
+              <button
+                onClick={() => router.push(`/places/${active.placeId}`)}
+                className="px-3 py-1 rounded-full bg-emerald-700 text-white font-semibold hover:bg-emerald-800 transition"
+              >
+                افتح صفحة المكان
+              </button>
+
               {active.compareId && (
                 <a
                   href={`/#${active.compareId}`}
@@ -84,8 +104,8 @@ export default function LeafletMapInner() {
           </div>
         ) : (
           <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4 text-xs sm:text-sm text-slate-600">
-            اضغط على أي ماركر على الخريطة لعرض معلومات المكان. مستقبلاً يمكن
-            ربط كل مكان بصور قديمة/حديثة وقصص من أهل البلد.
+            اضغط على أي ماركر على الخريطة لعرض معلومات المكان. مستقبلاً يمكن ربط
+            كل مكان بصور قديمة/حديثة وقصص من أهل البلد.
           </div>
         )}
       </div>

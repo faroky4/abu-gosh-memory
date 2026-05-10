@@ -7,7 +7,7 @@ const links = [
   { href: "/#past", label: "أبو غوش زمان" },
   { href: "/#present", label: "أبو غوش اليوم" },
   { href: "/stories", label: "قصص أهل البلد" },
-  // { href: "/compare", label: "زمان/اليوم" },
+ { href: "/compare", label: "زمان/اليوم" },
   { href: "/#map", label: "الخريطة" },
   { href: "/#future", label: "المستقبل" },
 ];
@@ -24,13 +24,13 @@ export default function Header() {
             AG
           </div>
           <div className="leading-tight">
-            <h1 className="text-base font-semibold">حكاية أبو غوش</h1>
-            <p className="text-xs text-slate-500">بين الماضي والحاضر</p>
+            <h1 className="text-lg font-bold">حكاية أبو غوش</h1>
+            <p className="text-sm text-slate-500">بين الماضي والحاضر</p>
           </div>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden sm:flex gap-4 text-sm">
+        <nav className="hidden sm:flex gap-6 text-base font-semibold">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -44,7 +44,7 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-200 text-slate-700"
+          className="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-slate-200 text-slate-700"
           onClick={() => setOpen((v) => !v)}
           aria-label="القائمة"
         >
@@ -55,7 +55,7 @@ export default function Header() {
       {/* Mobile menu dropdown */}
       {open && (
         <div className="sm:hidden border-t border-slate-200 bg-white/95">
-          <nav className="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-2 text-sm">
+          <nav className="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-3 text-base font-semibold">
             {links.map((link) => (
               <Link
                 key={link.href}

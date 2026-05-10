@@ -5,11 +5,13 @@ import Section from "@/app/components/site/Section";
 import { stories } from "@/data/stories";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
-export default function StoryDetailsPage({ params }: Props) {
-  const story = stories.find((s) => s.id === params.id);
+export default async function StoryDetailsPage({ params }: Props) {
+  const { id } = await params;
+
+  const story = stories.find((s) => s.id === id);
 
   if (!story) {
     return (
@@ -66,11 +68,55 @@ export default function StoryDetailsPage({ params }: Props) {
           ) : null}
 
           <article className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5">
+            {story.videoUrl ? (
+              <div
+                className={[
+                  "mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100",
+                  story.isShort
+                    ? "mx-auto aspect-[9/16] w-full max-w-sm"
+                    : "aspect-video w-full",
+                ].join(" ")}
+              >
+                <iframe
+                  src={story.videoUrl}
+                  title={story.videoTitle ?? story.title}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            ) : null}
+            {story.coverImage ? (
+              <img
+                src={story.coverImage}
+                alt={story.title}
+                className="mb-6 h-full w-full rounded-2xl object-cover border border-slate-200"
+              />
+            ) : null}
             {story.content.map((p, idx) => (
-              <p key={idx} className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+              <p
+                key={idx}
+                className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4"
+              >
                 {p}
               </p>
             ))}
+            {story.images?.length ? (
+              <div className="mt-8">
+                <h4 className="text-lg font-bold mb-3">صور من القصة</h4>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {story.images.map((image) => (
+                    <img
+                      key={image}
+                      src={image}
+                      alt={story.title}
+                      className="h-36 sm:h-44 w-full rounded-xl object-cover border border-slate-200"
+                    />
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </article>
         </Section>
       </div>

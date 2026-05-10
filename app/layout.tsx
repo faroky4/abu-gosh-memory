@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className="bg-slate-50 text-slate-900">
+      <body className="bg-slate-50 text-slate-900 text-[16px] sm:text-[17px]">
         {children}
       </body>
     </html>

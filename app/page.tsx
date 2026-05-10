@@ -6,6 +6,7 @@ import FeatureCards from "./components/site/FeatureCards";
 import StoriesPreview from "./components/site/StoriesPreview";
 import BeforeAfterSlider from "./components/site/BeforeAfterSlider";
 import InteractiveMap from "./components/site/InteractiveMap";
+import FeaturedVideos from "./components/site/FeaturedVideos";
 
 export default function HomePage() {
   return (
@@ -67,6 +68,15 @@ export default function HomePage() {
           subtitle="مقابلات وروايات من كبار السن عن الطفولة، العمل، الأعياد، والتغييرات بين زمان واليوم."
         >
           <StoriesPreview />
+        </Section>
+
+        <Section
+          id="videos"
+          title="فيديوهات مميزة"
+          subtitle="لقطات وذكريات موثقة من أبو غوش — اضغط على الفيديو لمشاهدته كاملاً."
+          className="border-t"
+        >
+          <FeaturedVideos />
         </Section>
 
         <Section
