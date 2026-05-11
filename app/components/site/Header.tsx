@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  { href: "/#past", label: "أبو غوش زمان" },
-  { href: "/#present", label: "أبو غوش اليوم" },
+  { href: "/heritage#past", label: "أبو غوش زمان" },
+  { href: "/heritage#present", label: "أبو غوش اليوم" },
   { href: "/stories", label: "قصص أهل البلد" },
- { href: "/compare", label: "زمان/اليوم" },
-  { href: "/#map", label: "الخريطة" },
-  { href: "/#future", label: "المستقبل" },
+  { href: "/compare", label: "زمان/اليوم" },
+  { href: "/heritage#map", label: "الخريطة" },
+  { href: "/heritage#future", label: "المستقبل" },
 ];
 
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
     <header className="w-full border-b bg-white/80 backdrop-blur sticky top-0 z-20">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/heritage" className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-full bg-amber-700/90 flex items-center justify-center text-white text-sm font-bold">
             AG
           </div>

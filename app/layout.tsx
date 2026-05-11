@@ -5,8 +5,8 @@ import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "حكاية أبو غوش",
-  description: "مشروع طلاب مدرسة أبو غوش الثانوية لحفظ ذاكرة البلد وربط الأجيال.",
+  title: "مدرسة أبو غوش الثانوية",
+  description: "مدرسة أبو غوش الثانوية — أبو غوش، القدس. بين الماضي والحاضر نبني المستقبل.",
 };
 
 export default function RootLayout({
