@@ -1,6 +1,34 @@
 import Link from "next/link";
 
-export default function SchoolHero() {
+interface HeroDict {
+  badge: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  ctaAbout: string;
+  ctaHeritage: string;
+  quoteText: string;
+  quoteLabel: string;
+}
+
+const defaultDict: HeroDict = {
+  badge: "مدرسة",
+  title: "أبو غوش الثانوية",
+  subtitle: "بين الماضي والحاضر… نبني المستقبل",
+  description: "نحفظ ذاكرة المكان، ونلهم أجيال اليوم لنصنع غدًا أفضل.",
+  ctaAbout: "تعرف على المدرسة",
+  ctaHeritage: "حكاية أبو غوش",
+  quoteText: "إن تعلمت أن الفشل ما هو نهاية، هو بداية مختلفة.",
+  quoteLabel: "اقتباس تعليمي",
+};
+
+export default function SchoolHero({
+  dict = defaultDict,
+  lang,
+}: {
+  dict?: HeroDict;
+  lang?: string;
+}) {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "88vh" }}>
 
@@ -23,22 +51,22 @@ export default function SchoolHero() {
 
             {/* Label */}
             <p className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-amber-400 mb-4 uppercase">
-              مدرسة
+              {dict.badge}
             </p>
 
             {/* Main title */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] text-white mb-5">
-              أبو غوش الثانوية
+              {dict.title}
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl font-medium text-stone-200 mb-4 leading-relaxed">
-              بين الماضي والحاضر… نبني المستقبل
+              {dict.subtitle}
             </p>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-stone-300/90 leading-relaxed mb-9 max-w-sm">
-              نحفظ ذاكرة المكان، ونلهم أجيال اليوم لنصنع غدًا أفضل.
+              {dict.description}
             </p>
 
             {/* CTA buttons */}
@@ -47,13 +75,13 @@ export default function SchoolHero() {
                 href="#about"
                 className="px-6 py-3 rounded-xl text-sm font-bold bg-amber-600 text-white hover:bg-amber-700 transition-colors duration-150 shadow-lg shadow-amber-900/40"
               >
-                تعرف على المدرسة
+                {dict.ctaAbout}
               </Link>
               <Link
-                href="/heritage"
+                href={lang ? `/${lang}/heritage` : "/heritage"}
                 className="px-6 py-3 rounded-xl text-sm font-bold border border-white/25 text-white hover:bg-white/10 transition-colors duration-150"
               >
-                حكاية أبو غوش
+                {dict.ctaHeritage}
               </Link>
             </div>
 
@@ -66,10 +94,10 @@ export default function SchoolHero() {
         <div className="bg-stone-900/65 backdrop-blur-md border border-white/12 rounded-2xl px-5 py-4">
           <div className="w-5 h-5 rounded-full bg-amber-600/80 mb-3" />
           <p className="text-sm text-stone-100 leading-relaxed mb-3">
-            &quot;إن تعلمت أن الفشل ما هو نهاية، هو بداية مختلفة.&quot;
+            &quot;{dict.quoteText}&quot;
           </p>
           <div className="h-px bg-white/12 mb-2" />
-          <p className="text-xs text-stone-400">اقتباس تعليمي</p>
+          <p className="text-xs text-stone-400">{dict.quoteLabel}</p>
         </div>
       </div>
 

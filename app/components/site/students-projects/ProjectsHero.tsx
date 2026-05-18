@@ -1,15 +1,27 @@
-export default function ProjectsHero() {
+interface HeroDict {
+  badge: string;
+  title: string;
+  subtitle: string;
+}
+
+const defaultDict: HeroDict = {
+  badge: "الطلاب",
+  title: "مشاريع الطلاب",
+  subtitle: "أعمال بحثية، توثيقية، وتكنولوجية ينفّذها طلاب مدرسة أبو غوش الثانوية في خدمة تراث المدينة ومجتمعها.",
+};
+
+export default function ProjectsHero({ dict = defaultDict }: { dict?: HeroDict }) {
   return (
     <section className="bg-stone-50 border-b border-stone-200/60">
       <div className="max-w-4xl mx-auto px-5 sm:px-8 py-20 sm:py-24 text-center">
         <span className="inline-block px-3.5 py-1 rounded-full text-xs font-semibold tracking-widest bg-amber-100 text-amber-700 mb-7 uppercase">
-          الطلاب
+          {dict.badge}
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold text-stone-900 mb-5 leading-tight">
-          مشاريع الطلاب
+          {dict.title}
         </h1>
         <p className="text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl mx-auto">
-          أعمال بحثية، توثيقية، وتكنولوجية ينفّذها طلاب مدرسة أبو غوش الثانوية في خدمة تراث المدينة ومجتمعها.
+          {dict.subtitle}
         </p>
       </div>
     </section>

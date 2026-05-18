@@ -1,6 +1,10 @@
 import { stories } from "@/data/stories";
 
-export default function StoriesPreview() {
+export default function StoriesPreview({
+  readMoreLabel = "قراءة القصة كاملة لاحقًا",
+}: {
+  readMoreLabel?: string;
+}) {
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       {stories.slice(0, 2).map((s) => (
@@ -18,7 +22,7 @@ export default function StoriesPreview() {
           <p className="text-xs text-slate-600 mb-3">{s.excerpt}</p>
 
           <button className="text-xs font-semibold text-amber-700 hover:text-amber-800">
-            قراءة القصة كاملة لاحقًا
+            {readMoreLabel}
           </button>
 
           {s.tags?.length ? (

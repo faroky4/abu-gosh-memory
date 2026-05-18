@@ -1,11 +1,16 @@
-const stats = [
-  { icon: "🎓", value: "+1200", label: "طالب وطالبة" },
-  { icon: "📚", value: "85", label: "معلم ومعلمة" },
-  { icon: "⭐", value: "35", label: "سنة من التعليم" },
-  { icon: "🏆", value: "+3500", label: "خريج وخريجة" },
+const BASE_STATS = [
+  { icon: "🎓", value: "+1200" },
+  { icon: "📚", value: "85" },
+  { icon: "⭐", value: "35" },
+  { icon: "🏆", value: "+3500" },
 ];
 
-export default function SchoolStats() {
+const defaultLabels = ["طالب وطالبة", "معلم ومعلمة", "سنة من التعليم", "خريج وخريجة"];
+
+export default function SchoolStats({ dict }: { dict?: { labels: string[] } }) {
+  const labels = dict?.labels ?? defaultLabels;
+  const stats = BASE_STATS.map((s, i) => ({ ...s, label: labels[i] }));
+
   return (
     <div id="stats" className="relative z-20 -mt-12 sm:-mt-16 px-4 sm:px-8 pb-2">
       <div className="max-w-5xl mx-auto">

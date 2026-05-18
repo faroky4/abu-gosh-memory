@@ -1,14 +1,57 @@
 import Link from "next/link";
+import type { Locale, NavDictionary } from "@/lib/i18n";
 
-const quickLinks = [
-  { href: "/", label: "الرئيسية" },
-  { href: "/#about", label: "عن المدرسة" },
-  { href: "/#news", label: "الأخبار" },
-  { href: "/#students", label: "الطلاب" },
-  { href: "/heritage", label: "حكاية أبو غوش" },
-];
+interface FooterDict {
+  quickLinksLabel: string;
+  contactLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
+  copyright: string;
+}
 
-export default function SchoolFooter() {
+const defaultFooterDict: FooterDict = {
+  quickLinksLabel: "روابط سريعة",
+  contactLabel: "التواصل",
+  emailLabel: "البريد الإلكتروني",
+  phoneLabel: "الهاتف",
+  phonePlaceholder: "سيتم التحديث لاحقًا",
+  copyright: "© 2026 مدرسة أبو غوش الثانوية. جميع الحقوق محفوظة.",
+};
+
+const defaultNavDict: NavDictionary = {
+  home: "الرئيسية",
+  about: "عن المدرسة",
+  news: "الأخبار",
+  students: "الطلاب",
+  heritage: "حكاية أبو غوش",
+  contact: "تواصل",
+  portal: "البوابة الإلكترونية",
+};
+
+interface FooterProps {
+  lang?: Locale;
+  navDict?: NavDictionary;
+  footerDict?: FooterDict;
+}
+
+export default function SchoolFooter({
+  lang,
+  navDict = defaultNavDict,
+  footerDict = defaultFooterDict,
+}: FooterProps) {
+  // Build hrefs that are lang-aware when a locale is provided
+  const homeHref = lang ? `/${lang}` : "/";
+  const anchorPrefix = lang ? `/${lang}` : "";
+
+  const quickLinks = [
+    { href: homeHref, label: navDict.home },
+    { href: `${anchorPrefix}/#about`, label: navDict.about },
+    { href: `${anchorPrefix}/#news`, label: navDict.news },
+    { href: `${anchorPrefix}/#students`, label: navDict.students },
+    { href: lang ? `/${lang}/heritage` : "/heritage", label: navDict.heritage },
+  ];
+
   return (
     <footer className="bg-stone-900 border-t border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 pt-12 pb-8">
@@ -36,7 +79,7 @@ export default function SchoolFooter() {
           {/* Col 2: Quick links */}
           <div>
             <p className="text-xs font-semibold tracking-widest text-amber-500 mb-5">
-              روابط سريعة
+              {footerDict.quickLinksLabel}
             </p>
             <ul className="flex flex-col gap-3">
               {quickLinks.map((l) => (
@@ -55,16 +98,16 @@ export default function SchoolFooter() {
           {/* Col 3: Contact */}
           <div>
             <p className="text-xs font-semibold tracking-widest text-amber-500 mb-5">
-              التواصل
+              {footerDict.contactLabel}
             </p>
             <ul className="flex flex-col gap-4">
               <li>
-                <p className="text-xs text-stone-500 mb-1">البريد الإلكتروني</p>
+                <p className="text-xs text-stone-500 mb-1">{footerDict.emailLabel}</p>
                 <p className="text-sm text-stone-300">info@abugoshschool.org</p>
               </li>
               <li>
-                <p className="text-xs text-stone-500 mb-1">الهاتف</p>
-                <p className="text-sm text-stone-400">سيتم التحديث لاحقًا</p>
+                <p className="text-xs text-stone-500 mb-1">{footerDict.phoneLabel}</p>
+                <p className="text-sm text-stone-400">{footerDict.phonePlaceholder}</p>
               </li>
             </ul>
           </div>
@@ -74,7 +117,7 @@ export default function SchoolFooter() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6">
           <p className="text-xs text-stone-500 text-center">
-            © 2026 مدرسة أبو غوش الثانوية. جميع الحقوق محفوظة.
+            {footerDict.copyright}
           </p>
         </div>
 
