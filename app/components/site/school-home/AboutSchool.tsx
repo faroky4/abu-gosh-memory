@@ -19,13 +19,13 @@ const cards = [
 export default function AboutSchool() {
   return (
     <section id="about" className="bg-stone-50 border-t border-stone-100">
-      <div className="max-w-6xl mx-auto px-4 py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
 
           {/* Right: text content */}
           <div>
             {/* Badge */}
-            <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest text-amber-700 bg-amber-100 px-4 py-1.5 rounded-full mb-6">
+            <span className="inline-block text-xs font-semibold tracking-widest text-amber-700 bg-amber-100 px-3 py-1 rounded-full mb-6">
               مدرستنا
             </span>
 

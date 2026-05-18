@@ -3,7 +3,7 @@ import SchoolNavbar from "./components/site/school-home/SchoolNavbar";
 import SchoolHero from "./components/site/school-home/SchoolHero";
 import SchoolStats from "./components/site/school-home/SchoolStats";
 import AboutSchool from "./components/site/school-home/AboutSchool";
-import SchoolNews from "./components/site/school-home/SchoolNews";
+import SchoolPulse from "./components/site/school-home/SchoolPulse";
 import StudentImpact from "./components/site/school-home/StudentImpact";
 import HeritageCTA from "./components/site/school-home/HeritageCTA";
 
@@ -15,8 +15,8 @@ export default function HomePage() {
       <div className="flex-1">
         <SchoolHero />
         <SchoolStats />
+        <SchoolPulse />
         <AboutSchool />
-        <SchoolNews />
         <StudentImpact />
         <HeritageCTA />
       </div>

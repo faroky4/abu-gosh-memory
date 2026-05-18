@@ -2,54 +2,77 @@ import Link from "next/link";
 
 export default function SchoolHero() {
   return (
-    <section
-      className="border-b bg-gradient-to-b from-amber-50/60 via-stone-50 to-white"
-    >
-      <div className="max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
-        {/* Location badge */}
-        <p className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-wide text-amber-800 bg-amber-100 px-4 py-1.5 rounded-full mb-8">
-          <span>📍</span>
-          <span>أبو غوش </span>
-        </p>
+    <section className="relative overflow-hidden" style={{ minHeight: "88vh" }}>
 
-        {/* School name */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] text-stone-900 mb-5">
-          مدرسة أبو غوش الثانوية
-        </h1>
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/school-new.jpg')" }}
+      />
 
-        {/* Tagline */}
-        <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-amber-800 mb-6">
-          بين الماضي والحاضر… نبني المستقبل
-        </p>
+      {/* Gradient overlay — heavier on the right (RTL text side) */}
+      <div className="absolute inset-0 bg-gradient-to-l from-stone-950/92 via-stone-900/65 to-stone-900/20" />
 
-        {/* Description */}
-        <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl mx-auto mb-10">
-          نحفظ ذاكرة المكان، ونلهم أجيال اليوم لنصنع معًا غدًا أفضل.
-        </p>
+      {/* Top fade for depth */}
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-stone-950/50 to-transparent" />
 
-        {/* CTAs */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="#stats"
-            className="px-7 py-3 rounded-full text-sm sm:text-base font-semibold bg-amber-700 text-white hover:bg-amber-800 transition-colors duration-150 shadow-sm"
-          >
-            تعرف على المدرسة
-          </Link>
-          <Link
-            href="/heritage"
-            className="px-7 py-3 rounded-full text-sm sm:text-base font-semibold border-2 border-amber-700 text-amber-800 hover:bg-amber-700 hover:text-white transition-colors duration-150"
-          >
-            حكاية أبو غوش
-          </Link>
-        </div>
+      {/* Main content — aligned to right bottom in RTL */}
+      <div className="absolute inset-0 flex items-end">
+        <div className="max-w-7xl mx-auto px-5 sm:px-10 w-full pb-32 sm:pb-52 pt-20">
+          <div className="max-w-xl">
 
-        {/* Decorative divider */}
-        <div className="mt-16 flex items-center justify-center gap-3">
-          <div className="h-px flex-1 max-w-24 bg-stone-200" />
-          <span className="text-amber-300 text-lg">⬥</span>
-          <div className="h-px flex-1 max-w-24 bg-stone-200" />
+            {/* Label */}
+            <p className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-amber-400 mb-4 uppercase">
+              مدرسة
+            </p>
+
+            {/* Main title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] text-white mb-5">
+              أبو غوش الثانوية
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg sm:text-xl font-medium text-stone-200 mb-4 leading-relaxed">
+              بين الماضي والحاضر… نبني المستقبل
+            </p>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-stone-300/90 leading-relaxed mb-9 max-w-sm">
+              نحفظ ذاكرة المكان، ونلهم أجيال اليوم لنصنع غدًا أفضل.
+            </p>
+
+            {/* CTA buttons */}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="#about"
+                className="px-6 py-3 rounded-xl text-sm font-bold bg-amber-600 text-white hover:bg-amber-700 transition-colors duration-150 shadow-lg shadow-amber-900/40"
+              >
+                تعرف على المدرسة
+              </Link>
+              <Link
+                href="/heritage"
+                className="px-6 py-3 rounded-xl text-sm font-bold border border-white/25 text-white hover:bg-white/10 transition-colors duration-150"
+              >
+                حكاية أبو غوش
+              </Link>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      {/* Floating quote card — lower left, desktop only */}
+      <div className="hidden lg:block absolute bottom-52 left-12 z-20 w-64">
+        <div className="bg-stone-900/65 backdrop-blur-md border border-white/12 rounded-2xl px-5 py-4">
+          <div className="w-5 h-5 rounded-full bg-amber-600/80 mb-3" />
+          <p className="text-sm text-stone-100 leading-relaxed mb-3">
+            &quot;إن تعلمت أن الفشل ما هو نهاية، هو بداية مختلفة.&quot;
+          </p>
+          <div className="h-px bg-white/12 mb-2" />
+          <p className="text-xs text-stone-400">اقتباس تعليمي</p>
+        </div>
+      </div>
+
     </section>
   );
 }

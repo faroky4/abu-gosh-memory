@@ -11,7 +11,7 @@ const quickLinks = [
 export default function SchoolFooter() {
   return (
     <footer className="bg-stone-900 border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 pt-12 pb-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 pt-12 pb-8">
 
         {/* 3-column grid */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 mb-10">
