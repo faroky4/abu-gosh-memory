@@ -50,7 +50,7 @@ function MuseumCard({ card }: { card: Card }) {
   return (
     <Link
       href={card.href}
-      className="group relative bg-stone-900 rounded-3xl overflow-hidden flex flex-col min-h-64 xl:min-h-80 transition-all duration-200 hover:bg-stone-800 hover:-translate-y-1 active:scale-[0.98] select-none"
+      className="group relative bg-stone-800 border border-stone-700/40 rounded-3xl overflow-hidden flex flex-col min-h-64 xl:min-h-80 transition-all duration-200 hover:bg-stone-700 hover:-translate-y-1 active:scale-[0.98] select-none"
     >
       {/* Color accent bar */}
       <div className={`h-1.5 w-full ${card.accentBg} shrink-0`} />
@@ -87,7 +87,7 @@ export default function MuseumGrid() {
   const [row1, row2] = [CARDS.slice(0, 3), CARDS.slice(3)];
 
   return (
-    <section className="bg-stone-950 px-6 sm:px-10 xl:px-16 pb-20">
+    <section className="bg-stone-900 px-6 sm:px-10 xl:px-16 pb-20">
       <div className="max-w-7xl mx-auto space-y-5">
 
         {/* Row 1: 3 cards */}

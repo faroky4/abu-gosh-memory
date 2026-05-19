@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { places, type Place } from "@/data/places";
 import MuseumSlider from "./MuseumSlider";
@@ -39,8 +40,18 @@ export default function MuseumComparePage() {
           </p>
         </div>
 
-        {/* Balance spacer */}
-        <div className="w-[148px] shrink-0" />
+        {/* Logo — balances back button */}
+        <div className="w-[148px] shrink-0 flex items-center justify-end">
+          <div className="relative h-8 w-20 opacity-60">
+            <Image
+              src="/images/branding/school-logo.png"
+              alt="شعار مدرسة أبو غوش الثانوية"
+              fill
+              sizes="80px"
+              className="object-contain"
+            />
+          </div>
+        </div>
       </header>
 
       {/* Main: slider + side panel */}

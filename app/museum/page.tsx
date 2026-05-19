@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MuseumPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-stone-950 flex flex-col">
+    <main dir="rtl" className="min-h-screen bg-stone-900 flex flex-col">
       <MuseumHero />
       <MuseumGrid />
       <MuseumFooter />

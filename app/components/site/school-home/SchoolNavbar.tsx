@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import type { Locale, NavDictionary } from "@/lib/i18n";
@@ -56,8 +57,15 @@ export default function SchoolNavbar({ lang, dict }: NavbarProps) {
 
         {/* Logo — RIGHT in RTL (first child) */}
         <Link href={homeHref} className="flex items-center gap-3 shrink-0">
-          <div className="w-10 h-10 rounded-full bg-amber-700 flex items-center justify-center text-white font-bold text-sm shrink-0">
-            م.أ
+          <div className="relative h-10 w-28 shrink-0">
+            <Image
+              src="/images/branding/school-logo.png"
+              alt="شعار مدرسة أبو غوش الثانوية"
+              fill
+              sizes="112px"
+              className="object-contain"
+              priority
+            />
           </div>
           <div className="leading-tight">
             <p className="text-sm sm:text-base font-bold text-stone-900 leading-none">

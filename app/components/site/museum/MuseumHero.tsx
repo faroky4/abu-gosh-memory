@@ -1,14 +1,30 @@
+import Image from "next/image";
+
 export default function MuseumHero() {
   return (
-    <section className="relative min-h-screen bg-stone-950 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+    <section className="relative min-h-screen bg-stone-900 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
 
-      {/* Ambient glow */}
+      {/* Heritage logo — fullscreen centered atmospheric layer */}
+      <div
+        className="absolute inset-0 pointer-events-none select-none opacity-[0.05] blur-[1px]"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/branding/heritage-logo.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-contain"
+        />
+      </div>
+
+      {/* Ambient glow — overlays and warms the logo from center */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 60%, rgba(180,83,9,0.18) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 55% at 50% 60%, rgba(180,83,9,0.10) 0%, transparent 70%)",
         }}
       />
 

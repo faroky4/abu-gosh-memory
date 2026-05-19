@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { type MapPlace } from "@/data/mapPlaces";
 
@@ -46,8 +47,18 @@ export default function MuseumMapPage() {
           </p>
         </div>
 
-        {/* Spacer to balance back button */}
-        <div className="w-[148px] shrink-0" />
+        {/* Logo — balances back button */}
+        <div className="w-[148px] shrink-0 flex items-center justify-end">
+          <div className="relative h-8 w-20 opacity-60">
+            <Image
+              src="/images/branding/school-logo.png"
+              alt="شعار مدرسة أبو غوش الثانوية"
+              fill
+              sizes="80px"
+              className="object-contain"
+            />
+          </div>
+        </div>
       </header>
 
       {/* Main content: map + side panel */}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 interface HeaderDict {
@@ -62,8 +63,15 @@ export default function Header({
 
         {/* Logo */}
         <Link href={basePath} className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-full bg-amber-700/90 flex items-center justify-center text-white text-sm font-bold">
-            AG
+          <div className="relative h-9 w-24 shrink-0">
+            <Image
+              src="/images/branding/school-logo.png"
+              alt="شعار مدرسة أبو غوش الثانوية"
+              fill
+              sizes="96px"
+              className="object-contain"
+              priority
+            />
           </div>
           <div className="leading-tight">
             <h1 className="text-lg font-bold">{dict.logoTitle}</h1>

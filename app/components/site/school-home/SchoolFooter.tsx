@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Locale, NavDictionary } from "@/lib/i18n";
 
 interface FooterDict {
@@ -62,8 +63,14 @@ export default function SchoolFooter({
           {/* Col 1: Identity */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-amber-700 flex items-center justify-center text-white font-bold text-sm shrink-0">
-                م.أ
+              <div className="relative h-9 w-24 shrink-0">
+                <Image
+                  src="/images/branding/school-logo.png"
+                  alt="شعار مدرسة أبو غوش الثانوية"
+                  fill
+                  sizes="96px"
+                  className="object-contain opacity-70"
+                />
               </div>
               <div className="leading-tight">
                 <p className="text-sm font-bold text-white">مدرسة أبو غوش الثانوية</p>
